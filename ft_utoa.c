@@ -6,37 +6,46 @@
 /*   By: al-humea <al-humea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 14:37:40 by al-humea          #+#    #+#             */
-/*   Updated: 2019/11/29 16:58:15 by al-humea         ###   ########.fr       */
+/*   Updated: 2021/01/29 11:09:28 by al-humea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_utoa(unsigned int n)
+static void	nbtoright(char *str, int m)
 {
-	char			*p;
-	int				size;
-	unsigned int	x;
+	int		i;
 
-	x = n;
-	size = 0;
-	while (x > 10)
+	i = 0;
+	while (str[i])
+		i++;
+	str[i + 1] = '\0';
+	while (i > m)
 	{
-		x /= 10;
-		size++;
+		str[i] = str[i - 1];
+		i--;
 	}
-	if (!(p = (char *)malloc(sizeof(p) * (size + 1))))
+	str[i] = 0;
+}
+
+char		*ft_utoa(unsigned int nbr)
+{
+	char			*str;
+	int				m;
+	unsigned int	nb;
+
+	nb = nbr;
+	m = 0;
+	if (!(str = malloc(sizeof(char) * (ft_nbrlen(nbr) + 1))))
 		return (NULL);
-	if (p)
+	str[m] = '\0';
+	while (nb > 9)
 	{
-		p[size + 1] = '\0';
-		while (size >= 0)
-		{
-			x = n % 10;
-			p[size] = 48 + x;
-			n = n / 10;
-			size--;
-		}
+		nbtoright(str, m);
+		str[m] = (nb % 10) + 48;
+		nb /= 10;
 	}
-	return (p);
+	nbtoright(str, m);
+	str[m] = nb + 48;
+	return (str);
 }

@@ -6,7 +6,7 @@
 #    By: al-humea <al-humea@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/21 14:21:41 by al-humea          #+#    #+#              #
-#    Updated: 2019/12/02 12:50:54 by al-humea         ###   ########.fr        #
+#    Updated: 2021/01/29 11:01:46 by al-humea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ S_DIR	= ft_bzero.c\
 			ft_isdigit.c\
 			ft_isprint.c\
 			ft_atoi.c\
+			ft_atolu.c\
 			ft_memchr.c\
 			ft_memcpy.c\
 			ft_memccpy.c\
@@ -38,6 +39,7 @@ S_DIR	= ft_bzero.c\
 			ft_strncmp.c\
 			ft_toupper.c\
 			ft_strrchr.c\
+			ft_strsrc.c\
 			ft_substr.c\
 			ft_strjoin.c\
 			ft_strtrim.c\
@@ -51,11 +53,13 @@ S_DIR	= ft_bzero.c\
 			ft_utoa.c\
 			ft_chardup.c\
 			ft_nbrlen.c\
+			ft_hexalen.c\
 			ft_lutoa.c\
 			ft_lutox.c\
 			ft_lutocx.c\
 			ft_spamc.c\
 			ft_putlenstr.c\
+			ft_fillwith.c\
 			
 B_DIR	=	ft_lstnew.c\
 			ft_lstadd_front.c\

@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strsrc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: al-humea <al-humea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/06 14:20:13 by al-humea          #+#    #+#             */
-/*   Updated: 2021/01/29 11:07:17 by al-humea         ###   ########.fr       */
+/*   Created: 2021/01/29 10:58:30 by al-humea          #+#    #+#             */
+/*   Updated: 2021/01/29 10:59:07 by al-humea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memchr(const void *s, int c, size_t n)
+char	ft_strsrc(const char *str, int src)
 {
-	size_t			i;
-	unsigned char	*str;
+	int i;
 
-	str = (unsigned char *)s;
 	i = 0;
-	while (i < n)
+	while (str[i])
 	{
-		if (str[i] == c)
-			return ((void *)&str[i]);
+		if (str[i] == src)
+			return (1);
 		i++;
 	}
-	return (NULL);
+	return (0);
 }

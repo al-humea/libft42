@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_atolu.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: al-humea <al-humea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/06 14:20:13 by al-humea          #+#    #+#             */
-/*   Updated: 2021/01/29 11:07:17 by al-humea         ###   ########.fr       */
+/*   Created: 2021/01/29 10:56:06 by al-humea          #+#    #+#             */
+/*   Updated: 2021/01/29 10:59:14 by al-humea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memchr(const void *s, int c, size_t n)
+long unsigned int	ft_atolu(const char *str)
 {
-	size_t			i;
-	unsigned char	*str;
+	long unsigned int	nbr;
+	unsigned int		i;
 
-	str = (unsigned char *)s;
 	i = 0;
-	while (i < n)
+	nbr = 0;
+	while (str[i] == '\t' || str[i] == ' ' || str[i] == '\n' ||
+		str[i] == '\r' || str[i] == '\v' || str[i] == '\f')
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	while (str[i] <= '9' && str[i] >= '0')
 	{
-		if (str[i] == c)
-			return ((void *)&str[i]);
+		nbr = (nbr * 10) + (str[i] - 48);
 		i++;
 	}
-	return (NULL);
+	return (nbr);
 }

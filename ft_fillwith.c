@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_fillwith.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: al-humea <al-humea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/06 14:20:13 by al-humea          #+#    #+#             */
-/*   Updated: 2021/01/29 11:07:17 by al-humea         ###   ########.fr       */
+/*   Created: 2021/01/29 10:56:55 by al-humea          #+#    #+#             */
+/*   Updated: 2021/01/29 10:59:12 by al-humea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_fillwith(char *dst, char c, int size)
 {
-	size_t			i;
-	unsigned char	*str;
+	int i;
 
-	str = (unsigned char *)s;
 	i = 0;
-	while (i < n)
+	while (i < size)
 	{
-		if (str[i] == c)
-			return ((void *)&str[i]);
+		dst[i] = c;
 		i++;
 	}
-	return (NULL);
+	dst[i] = '\0';
+	return ;
 }
